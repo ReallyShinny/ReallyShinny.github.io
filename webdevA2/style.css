@@ -1,0 +1,675 @@
+/* ==================== KEYFRAMES ==================== */
+
+/* Floating animation for elements like arrows */
+@keyframes floatUpDown {
+    0%, to {
+        transform: translateY(0)
+    }
+    50% {
+        transform: translateY(-20px)
+    }
+}
+
+/* Background animation for text gradients */
+@keyframes animate-background {
+    0% {
+        background-position: 0 50%
+    }
+    to {
+        background-position: 100% 50%
+    }
+}
+
+/* Slide-up effect for appearing elements */
+@keyframes slideUp {
+    0% {
+        transform: translateY(100px);
+        opacity: 0
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1
+    }
+}
+
+/* ==================== FONTS ==================== */
+
+/* Custom font import */
+@font-face {
+    font-family: "centabel";
+    src: url(fonts/centabel/centabel.woff) format("woff")
+}
+
+/* ==================== GLOBAL STYLES ==================== */
+#navsidemob{
+    display: none;
+}
+/* Reset margins and apply global font */
+* {
+    margin: auto;
+    padding: 0;
+    font-family: "centabel"
+}
+
+/* Flex container setup for responsive layouts */
+.flexcontainer {
+    display: flex;
+    flex-wrap: wrap
+}
+
+/* Inline spacing for paragraph elements */
+p {
+    margin-inline: 100px
+}
+
+/* Enable smooth scroll for anchor links */
+html {
+    scroll-behavior: smooth
+}
+
+/* ==================== BUTTON STYLES ==================== */
+
+/* Shared button styling */
+.buttonspace, .returnbut {
+    font-size: 1.5em;
+    color: #fff;
+    background-color: #000;
+    flex: 1;
+    padding: 10px;
+    height: 100%;
+    margin-inline: 50px;
+    transition: .2s
+}
+
+/* Hover effect: invert colors and scale down slightly */
+.buttonspace:hover, .returnbut:hover {
+    color: #000;
+    background-color: #fff;
+    scale: 90%
+}
+
+/* Active state: change color and scale up */
+.buttonspace:active {
+    color: #fff;
+    background-color: gold;
+    scale: 120%
+}
+
+/* ==================== INTRO AND HEADER ==================== */
+
+/* Fullscreen intro overlay */
+.intro {
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000;
+    transition: 1s
+}
+
+/* Down arrow floating animation */
+#arrowdown {
+    margin-top: 150px;
+    z-index: 1;
+    animation: floatUpDown 2s infinite ease-in-out
+}
+
+/* Logo placement */
+#logo {
+    padding: 0 20px;
+    float: left
+}
+
+/* Main header hidden initially, slides in when sticky */
+#mainHeaderHead {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    padding-top: 17px;
+    background: none;
+    overflow: hidden;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    opacity: 0;
+    top: -100px;
+    padding-bottom: 6px
+}
+
+/* Sticky header when scrolling */
+#mainHeaderHead.sticky {
+    position: sticky;
+    background-color: rgba(255, 255, 255, 0.93);
+    opacity: 1;
+    top: 0;
+    border-bottom: 1px solid
+}
+
+/* ==================== MAIN BODY SECTIONS ==================== */
+
+body {
+    font-size: 1.2em
+}
+
+/* Greeting section with background and white text */
+#greetinghead {
+    font-size: 1.5em;
+    background-image: url(images/bgimg.png);
+    padding: 400px 100px 400px 100px;
+    text-align: center;
+    color: #fff;
+    border-bottom: 10px ridge #000;
+    min-height: 200px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+/* Center alignment for shared elements */
+#begindesc, #greetinghead, .transition {
+    background-position: center
+}
+
+/* Transitional banner section */
+.transition {
+    background-image: url(images/pianotrans.png);
+    background-size: 70%;
+    padding: 75px 50px 50px;
+    border-bottom: 10px solid #000;
+    border-top: 3px solid #272727
+}
+
+/* Text background highlight in greeting */
+#greetinghead > h1, #greetinghead > p {
+    background: rgba(12, 12, 12, 0.7);
+    text-align: center;
+    padding: 20px
+}
+
+/* Section following the intro */
+#begindesc {
+    text-align: center;
+    background-image: url(images/backgroudnnotes.png);
+    background-size: 500px;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: lighten;
+    padding: 150px;
+    font-size: 2em
+}
+
+#begindesc > h2 {
+    background-color: rgba(0, 0, 0, 0.188);
+    width: 70%
+}
+
+/* ==================== TOPIC BAR & IMAGES ==================== */
+
+#topicbar, .mozartpic {
+    margin: 50px
+}
+
+#topicbar > h2 {
+    margin-bottom: 50px;
+    flex: 100%;
+    text-align: center;
+    font-size: 2.5em
+}
+
+/* Composer portrait styling */
+.mozartpic {
+    float: left;
+    border-radius: 30px;
+    border: ridge gold 20px
+}
+
+/* Remove default bullets from lists */
+ul {
+    list-style-type: none
+}
+
+/* ==================== SECTION HEADERS ==================== */
+
+.pianosec {
+    text-align: center;
+    font-size: 1.5em
+}
+
+/* Big animated headers for each main section */
+#composersec > header > h2,
+#historysec > header > h2,
+#typesecs > header > h2 {
+    margin: 50px;
+    font-size: 9.5em;
+    background-color: #000;
+    font-weight: bolder;
+    color: transparent;
+    background-clip: text;
+    animation: animate-background 5s infinite alternate linear
+}
+
+/* Background images specific to sections */
+#composersec > header > h2 {
+    background-image: url(images/composers.png)
+}
+
+#historysec > header > h2 {
+    background-image: url(images/pianohist.png)
+}
+
+#typesecs > header > h2 {
+    background-image: url(images/pianotypes.png)
+}
+
+/* ==================== COMPOSER SECTION ==================== */
+
+.pianosec > header > article > p {
+    margin: 20px
+}
+
+.inscompos {
+    padding-top: 50px;
+    background-color: #000;
+    color: #fff;
+    margin-top: 100px
+}
+
+/* Composer article text block */
+.inscompos > article > p {
+    margin: 200px 10px 50px 10px;
+    text-align: left;
+    height: 400px
+}
+
+/* Composer subheadings */
+.inscompos > article > header > h2 {
+    font-size: 2em;
+    color: #ffd000;
+    font-style: italic;
+    border-inline: solid #989898 20px
+}
+
+/* Collapsible summary block styling */
+.inscompos > article > details > summary {
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    font-size: 45px
+}
+
+/* Paragraph content inside details block */
+.inscompos > article > details > p,
+.musiclist > li > details > p {
+    text-align: left;
+    font-size: 25px;
+    padding: 25px
+}
+
+/* ==================== SELECTABLE COMPOSERS ==================== */
+
+.musicpics {
+    float: none
+}
+
+#beethovenselect, #chopinselect, #mozartselect {
+    width: 350px;
+    height: 450px;
+    margin: 50px;
+    flex: 1;
+    background-position: center;
+    background-size: cover;
+    transition: .5s;
+    border: ridge #000 20px;
+    color: #fff
+}
+
+#mozartselect {
+    background-image: url(images/amadeus.jpg)
+}
+
+#beethovenselect {
+    background-image: url(images/ludwig.jpg)
+}
+
+#chopinselect {
+    background-image: url(images/chopin.jpg)
+}
+
+/* Hover effects with unique border colors */
+#mozartselect:hover {
+    scale: 110%;
+    border-radius: 30px;
+    border: ridge #dc053b 20px
+}
+
+#beethovenselect:hover, #chopinselect:hover {
+    scale: 110%;
+    border-radius: 30px;
+    border: ridge #090c3b 20px
+}
+
+#chopinselect:hover {
+    border: ridge #836fa5 20px
+}
+
+/* Pressing effect: scale up */
+#beethovenselect:active,
+#chopinselect:active,
+#mozartselect:active {
+    scale: 130%
+}
+
+/* ==================== OTHER STYLES ==================== */
+
+.inscompos > article > header > h2,
+.signatures,
+summary {
+    background-color: #fff
+}
+
+.signatures {
+    float: left
+}
+
+#composersec.fade-in {
+    opacity: 1
+}
+
+summary {
+    color: #000
+}
+
+.inart {
+    margin: 50px 0
+}
+
+.inart > header > h2,
+footer {
+    color: #fff;
+    background-color: #000
+}
+
+.inart > header > h2 {
+    padding: 20px 0;
+    font-size: 1.7em
+}
+
+.inart > p {
+    margin: 40px
+}
+
+/* Apply slide-up animation */
+.slide-up {
+    animation: slideUp 1s ease-out forwards
+}
+
+/* Hide sections until triggered */
+#composersec, #historysec, #typesecs {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height .5s ease, opacity .5s ease
+}
+
+/* ==================== FOOTER ==================== */
+
+footer {
+    padding: 40px;
+    border-top: #fff 10px solid;
+    text-align: center
+}
+
+/* ==================== PIANO TYPES SELECTION ==================== */
+
+#pianosselect {
+    margin: 150px
+}
+
+.pianospace {
+    flex: 1;
+    border: #000 5px solid;
+    border-bottom: #000 60px solid;
+    background-color: #fff;
+    height: 400px;
+    width: 20%;
+    transition: .2s;
+    color: #fff;
+    font-size: 1.3em
+}
+
+.pianospace > h2 {
+    background-color: rgba(0, 0, 0, .257)
+}
+
+.pianospace:hover {
+    background-color: #474747;
+    background-blend-mode: overlay;
+    scale: 150%
+}
+
+.pianospace > p {
+    font-size: .6em;
+    margin: 0;
+    text-align: left
+}
+
+/* Specific piano type background images */
+#electric, #grand, #upright {
+    background-image: url(images/upright.png);
+    background-position: center;
+    background-size: 750px
+}
+
+#electric, #grand {
+    background-image: url(images/grandpiano.png)
+}
+
+#electric {
+    background-image: url(images/electric.png);
+    background-size: 400px
+}
+
+/* ==================== INTERACTIVE SECTION ==================== */
+
+#interactivep {
+    background-color: #272727;
+    padding: 35px;
+    margin: 50px;
+    border: #000 solid 10px;
+    border-radius: 20px
+}
+
+/* Virtual piano key layout */
+.keys {
+    display: flex;
+    margin-top: 40px;
+    text-align: center
+}
+
+/* White piano keys */
+.keys .white {
+    width: 70px;
+    height: 230px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-bottom: #a3a3a3 solid 10px
+}
+
+/* Black piano keys */
+.keys .black {
+    width: 44px;
+    height: 140px;
+    border-radius: 10px;
+    background-color: #000;
+    z-index: 2;
+    margin: 0 -22px;
+    color: #fff;
+    border-bottom: #272727 solid 10px
+}
+
+/* Piano section header */
+#pianohead {
+    flex: 100%;
+    font-size: 2em;
+    text-align: center;
+    color: #fff
+}
+
+/* Metronome icon styling */
+#metro {
+    margin: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 150px;
+    background-image: url(images/metornomeicon.png);
+    background-position: center;
+    background-size: 150px;
+    background-repeat: no-repeat;
+    transition: .2s
+}
+
+/* Hover and active effects for metronome */
+#metro:active, #metro:hover {
+    background-color: #989898;
+    background-blend-mode: overlay
+}
+
+#metro:active {
+    background-color: gold;
+    scale: 110%
+}
+
+/* Hover effect on any key */
+.key:hover {
+    background-color: #c4c4c4
+}
+
+@media (max-width: 800px) {    
+    p{
+        margin: 25px;
+    }
+    .pianospace-hovermob {
+    background-color: #474747;
+    background-blend-mode: overlay;
+    scale: 150%
+    }
+    #mainHeaderHead{
+        display: none;
+    }
+    .musicpics{
+        margin: 20px;
+        height: 300px;
+    }
+    iframe{
+        width: 410px;
+        height: 307px;
+    }
+    .inscompos > article > p{
+        margin: 50px 0px 10px;
+        min-height: 700px;
+        font-size: 25px;
+        
+    }
+    #greetinghead{
+        align-content: center;
+    }
+    
+    #begindesc{
+        padding: 0px;
+    }
+    #begindesc > p{
+    font-size: 0.7em;
+    padding: 0px;
+
+    }
+
+    .buttonspace{
+        width: 150px;
+        height: 70px;
+        font-size: 1em;
+        padding: 0;
+        margin: 0;
+    }
+
+    #beethovenselect, #mozartselect, #chopinselect{
+        display: flex;
+        flex: 100%;
+        text-align: center;
+        font-size: 2.5em;
+        height: 250px;
+        background-position: 50px;
+    }
+
+    #composersec > header > h2,
+    #historysec > header > h2,
+    #typesecs > header > h2{
+    font-size: 3em;
+    }
+    
+    .inscompos > article > details > p,
+    .musiclist > li > details > p {
+    text-align: center;
+    font-size: 15px;
+    padding: 25px;
+    margin: auto;
+    }
+
+
+    .inscompos{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .mozartpic{
+        scale: 100%;
+    }
+    #navsidemob{
+    display: block;
+    }
+    nav {
+        position: fixed;
+        height: 100%;
+        width: 0px;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        background-color: #000000ae;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+    #mobmainbutt, #mobpianobutton{
+        margin: 20px;
+
+    }
+    #navopener{
+        background-color: rgba(0, 0, 0, 0.236);
+        position: fixed;
+        top: 300px;
+
+    }
+
+    #mySidenav {
+    width: 0%;
+    transition: width 0.3s ease;
+    overflow-x: hidden;
+    }
+    .pianospace{
+        flex: 100%;
+    }
+    .exclud{
+        display: none;
+    }
+    #metro {
+        width: 125px;
+        height: 125px;
+        background-size: 75px;
+        margin: 0 auto; /* This centers it horizontally */
+        display: block; /* Make sure it's treated like a block */
+    }
+
+    #qrCodeImg{display:none;} /*hide QR code */
+
+}
+
+
+
